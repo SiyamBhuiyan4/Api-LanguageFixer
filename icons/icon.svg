@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Background rounded squircle -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bgGrad)" />
+  <!-- Pen accent dot -->
+  <circle cx="96" cy="32" r="7" fill="#34d399" />
+  <!-- Bengali Letter 'ব' (Stylized) -->
+  <path d="M 34 38 L 94 38 M 38 38 L 38 88 L 86 88 L 38 46 M 54 88 L 90 56" 
+        stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#shadow)"/>
+</svg>

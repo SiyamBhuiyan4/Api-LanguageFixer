@@ -1,0 +1,15 @@
+/* BanglaWrite AI - Content Styles (Scoped & Non-intrusive) */
+
+#banglawrite-hud-root {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 2147483647 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BanglaWrite AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-title">
+        <img src="../icons/icon32.png" alt="BanglaWrite Logo" class="logo-img">
+        <div>
+          <h1 class="app-title">BanglaWrite AI</h1>
+          <p class="app-subtitle">বাংলা রাইটিং অ্যাসিস্ট্যান্ট</p>
+        </div>
+      </div>
+      <button id="settingsIconBtn" class="icon-btn" title="সেটিংস (Settings)">⚙️</button>
+    </header>
+
+    <!-- API Status Banner -->
+    <div id="apiStatusBanner" class="status-banner status-loading">
+      <span class="status-dot"></span>
+      <span id="apiStatusText" class="status-text">যাচাই করা হচ্ছে...</span>
+      <button id="configureLink" class="status-action" style="display: none;">সেটআপ</button>
+    </div>
+
+    <!-- Mode Selector -->
+    <div class="form-group">
+      <label for="modeSelect" class="form-label">
+        <span>টোন মোড (Tone Mode)</span>
+      </label>
+      <select id="modeSelect" class="select-input">
+        <option value="natural">Natural Bangla (স্বাভাবিক বাংলা)</option>
+        <option value="polite">Polite (নম্র ও বিনীত)</option>
+        <option value="casual">Casual (অনানুষ্ঠানিক / আড্ডা)</option>
+        <option value="professional">Professional (পেশাদার / কর্মক্ষেত্র)</option>
+        <option value="formal">Formal (দাপ্তরিক / আনুষ্ঠানিক)</option>
+        <option value="short">Short (সংক্ষিপ্ত ও স্পষ্ট)</option>
+        <option value="fix_grammar">Fix Grammar (ব্যাকরণ ও বানান)</option>
+      </select>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button id="rewriteSelectionBtn" class="btn btn-primary">
+        <span class="btn-icon">⚡</span>
+        <span>Rewrite Selected Text</span>
+      </button>
+      <button id="rewriteFullBtn" class="btn btn-secondary">
+        <span class="btn-icon">📝</span>
+        <span>Rewrite Text</span>
+      </button>
+    </div>
+
+    <!-- Feedback Message -->
+    <div id="feedbackMsg" class="feedback-msg" style="display: none;"></div>
+
+    <!-- Keyboard Shortcut Hint -->
+    <div class="shortcut-box">
+      <span class="shortcut-label">কিবোর্ড শর্টকাট:</span>
+      <kbd id="shortcutKbd" class="shortcut-kbd">Cmd+Shift+B</kbd>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#" id="openOptionsLink" class="footer-link">⚙️ API Settings</a>
+      <span class="version-tag">v1.0.0</span>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BanglaWrite AI - সেটিং ও কনফিগারেশন</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-layout">
+    <!-- Header -->
+    <header class="settings-header">
+      <div class="header-brand">
+        <img src="../icons/icon48.png" alt="BanglaWrite AI Logo" class="brand-icon">
+        <div>
+          <h1 class="brand-title">BanglaWrite AI — সেটিংস</h1>
+          <p class="brand-desc">বাংলিশ ও কথ্য বাংলাকে নিখুঁত বাংলায় রূপান্তর করার জন্য আপনার নিজস্ব AI কনফিগার করুন।</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        <span id="headerStatusText">যাচাই করা হচ্ছে...</span>
+      </div>
+    </header>
+
+    <!-- Main Card -->
+    <main class="settings-card">
+      <form id="settingsForm">
+        <!-- 1. Provider Selection -->
+        <div class="form-row">
+          <label for="providerSelect" class="form-label">
+            <span>AI প্রভাইডার (AI Provider)</span>
+            <span class="label-hint">আপনার পছন্দের মডেল প্রভাইডার নির্বাচন করুন</span>
+          </label>
+          <select id="providerSelect" class="form-control select-control">
+            <option value="gemini">Google Gemini (বিনামূল্যে ব্যবহারের সুযোগ / প্রস্তাবিত)</option>
+            <option value="groq">Groq (সুপার-ফাস্ট LPU / Llama 3.3)</option>
+            <option value="openai">OpenAI (GPT-4o Mini / GPT-4o)</option>
+            <option value="ollama">Ollama (আপনার কম্পিউটারে সম্পূর্ণ অফলাইন)</option>
+            <option value="anthropic">Anthropic (Claude 3.5 Haiku)</option>
+            <option value="custom">Custom / OpenAI-Compatible (কাস্টম প্রক্সি)</option>
+          </select>
+        </div>
+
+        <!-- 2. API Key -->
+        <div class="form-row" id="apiKeyRow">
+          <label for="apiKeyInput" class="form-label">
+            <span id="apiKeyLabel">API কী (API Key)</span>
+            <span class="label-hint">
+              <a href="#" id="apiKeyHelpLink" target="_blank" rel="noopener">বিনামূল্যে API কী সংগ্রহ করুন ↗</a>
+            </span>
+          </label>
+          <div class="input-with-button">
+            <input type="password" id="apiKeyInput" class="form-control" placeholder="আপনার API কী এখানে পেস্ট করুন">
+            <button type="button" id="toggleKeyVisibility" class="btn-addon" title="দেখান / লুকান">👁️</button>
+          </div>
+          <small class="field-help" id="apiKeyNote">গোপনীয়তা নিশ্চিত: আপনার API কী শুধুমাত্র আপনার ব্রাউজারের ভেতর সংরক্ষিত থাকবে।</small>
+        </div>
+
+        <!-- 3. Model Name -->
+        <div class="form-row">
+          <label for="modelInput" class="form-label">
+            <span>মডেলের নাম (Model Name)</span>
+            <span class="label-hint">উদাহরণ: gemini-1.5-flash, gpt-4o-mini, llama-3.3-70b-versatile</span>
+          </label>
+          <input type="text" id="modelInput" class="form-control" placeholder="gemini-1.5-flash">
+        </div>
+
+        <!-- 4. Endpoint URL -->
+        <div class="form-row">
+          <label for="endpointInput" class="form-label">
+            <span>API এন্ডপয়েন্ট (Endpoint URL)</span>
+            <span class="label-hint">প্রয়োজনীয় ক্ষেত্রে পরিবর্তন করুন</span>
+          </label>
+          <input type="text" id="endpointInput" class="form-control" placeholder="https://generativelanguage.googleapis.com/v1beta/models">
+        </div>
+
+        <!-- 5. Default Tone -->
+        <div class="form-row">
+          <label for="defaultModeSelect" class="form-label">
+            <span>ডিফল্ট টোন মোড (Default Tone Mode)</span>
+            <span class="label-hint">শর্টকাট প্রেস করলে এই মোডে রূপান্তর হবে</span>
+          </label>
+          <select id="defaultModeSelect" class="form-control select-control">
+            <option value="natural">Natural Bangla — স্বাভাবিক ও সাবলীল বাংলা (Default)</option>
+            <option value="polite">Polite — মার্জিত ও বিনীত ভাষা</option>
+            <option value="casual">Casual — বন্ধুমহলের আড্ডা ও হালকা কথ্য রূপ</option>
+            <option value="professional">Professional — পেশাদার ও কর্মক্ষেত্রোপযোগী ভাষা</option>
+            <option value="formal">Formal — আনুষ্ঠানিক ও প্রাতিষ্ঠানিক প্রমিত রূপ</option>
+            <option value="short">Short — সংক্ষিপ্ত, পরিমিত ও সরাসরি রূপ</option>
+            <option value="fix_grammar">Fix Grammar — মূল কথা অক্ষুণ্ণ রেখে শুধু বানান ও ব্যাকরণ সংশোধন</option>
+          </select>
+        </div>
+
+        <!-- Test Results Area -->
+        <div id="testResultBox" class="test-result-box" style="display: none;">
+          <div class="test-result-header">
+            <span id="testResultIcon">⚡</span>
+            <strong id="testResultTitle">কানেকশন টেস্ট ফলাফল</strong>
+          </div>
+          <div id="testResultContent" class="test-result-content"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="button" id="testBtn" class="btn btn-secondary">
+            <span>🧪 টেস্ট কানেকশন (Test Connection)</span>
+          </button>
+          <button type="submit" id="saveBtn" class="btn btn-primary">
+            <span>💾 সেটিংস সংরক্ষণ করুন (Save Settings)</span>
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Instructions / Guide Card -->
+    <section class="info-card">
+      <h2 class="info-title">💡 কীভাবে ব্যবহার করবেন?</h2>
+      <ol class="info-list">
+        <li>যেকোনো ওয়েবসাইটে গিয়ে যেকোনো টেক্সটবক্স, ইনপুট বা কমেন্ট বক্সে ক্লিক করুন।</li>
+        <li>বাংলিশ বা স্বাভাবিক বাক্য লিখুন (যেমন: <code>ami ajke jete parbo na kalke gele ki hobe</code>)।</li>
+        <li>কিবোর্ডে প্রেস করুন: <strong><kbd id="macShortcutKbd">Command + Shift + B</kbd></strong> (উইন্ডোজে <strong><kbd>Ctrl + Shift + B</kbd></strong>)।</li>
+        <li>AI নিমেষেই আপনার লেখাকে সুন্দর প্রমিত বাংলায় রূপান্তর করে দেবে (যেমন: <code>আমি আজকে যেতে পারব না। কালকে গেলে কি হবে?</code>)।</li>
+        <li>এক্সটেনশন কখনো নিজে থেকে পোস্ট বা সেন্ড করবে না; আপনি নিজে দেখে নিশ্চিত হয়ে সেন্ড করতে পারবেন।</li>
+      </ol>
+    </section>
+
+    <!-- Privacy & Hardware Guarantee -->
+    <footer class="settings-footer">
+      <div class="footer-note">
+        🛡️ <strong>প্রাইভেসি ও পারফরম্যান্স গ্যারান্টি:</strong> আপনার কোনো ব্রাউজিং হিস্ট্রি ট্র্যাক করা হয় না। লাইটওয়েট ভ্যানিলা জাভাস্ক্রিপ্ট আর্কিটেকচার যা পুরোনো ম্যাকবুক এয়ারেও অত্যন্ত দ্রুত ও মসৃণভাবে চলবে।
+      </div>
+    </footer>
+  </div>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>
