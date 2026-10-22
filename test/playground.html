@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BanglaWrite AI - Testing Playground</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #10b981;
+      --accent-hover: #059669;
+      --danger: #ef4444;
+      --kbd-bg: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .instructions-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .instructions-card h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-list {
+      list-style-type: decimal;
+      padding-left: 20px;
+      color: var(--text-muted);
+    }
+
+    .step-list li {
+      margin-bottom: 8px;
+    }
+
+    .step-list li strong {
+      color: var(--text);
+    }
+
+    kbd {
+      background: var(--kbd-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #38bdf8;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.4);
+    }
+
+    .sample-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      background: #283548;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip:hover {
+      background: #334155;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .field-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .field-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .field-card .tag {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--text-muted);
+      background: #0f172a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .field-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    input[type="text"],
+    textarea,
+    .contenteditable-box {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    .contenteditable-box:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contenteditable-box {
+      min-height: 90px;
+      max-height: 250px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">BanglaWrite AI &bull; Interactive Sandbox</div>
+      <h1>Test BanglaWrite AI</h1>
+      <p class="subtitle">Quick testing environment for Input fields, Textareas, and ContentEditable elements.</p>
+    </header>
+
+    <div class="instructions-card">
+      <h2>🚀 How to test:</h2>
+      <ol class="step-list">
+        <li>Make sure you configured your API key in the extension <strong>Settings</strong> (Options page).</li>
+        <li>Click into any field below or click one of the quick samples to populate it.</li>
+        <li>Press <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> + <kbd>B</kbd> (or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>).</li>
+        <li>Notice the floating HUD indicating <em>"Rewriting text..."</em> and watch it rewrite into Bangla!</li>
+      </ol>
+      <div style="margin-top: 16px; font-size: 13px; font-weight: 600; color: #cbd5e1;">Click a sample to fill the active field:</div>
+      <div class="sample-chips">
+        <button class="chip" onclick="fillActive('ami ajke jete parbo na kalke gele ki hobe')">"ami ajke jete parbo na kalke gele ki hobe"</button>
+        <button class="chip" onclick="fillActive('apu ajke product ta pathaite parbo na kalke pathabo')">"apu ajke product ta pathaite parbo na kalke pathabo"</button>
+        <button class="chip" onclick="fillActive('vai meeting koytay shuru hobe link ta deben')">"vai meeting koytay shuru hobe link ta deben"</button>
+        <button class="chip" onclick="fillActive('dhobon kothay ache ami khuje pacchi na')">"dhobon kothay ache ami khuje pacchi na"</button>
+      </div>
+    </div>
+
+    <!-- 1. Textarea -->
+    <div class="field-card">
+      <h3>
+        <span>Standard Multi-line Textarea</span>
+        <span class="tag">&lt;textarea&gt;</span>
+      </h3>
+      <p class="field-desc">Used in standard forms, comment boxes, and support portals.</p>
+      <textarea id="test-textarea" placeholder="Type Banglish or select a sample above..."></textarea>
+    </div>
+
+    <!-- 2. ContentEditable (Messenger / Gmail / Discord style) -->
+    <div class="field-card">
+      <h3>
+        <span>ContentEditable Rich-Text Box</span>
+        <span class="tag">contenteditable="true"</span>
+      </h3>
+      <p class="field-desc">Used by Facebook, Messenger, Gmail, Discord, and LinkedIn editors.</p>
+      <div id="test-contenteditable" class="contenteditable-box" contenteditable="true" role="textbox" aria-multiline="true">ami apnar proposal ta dekhlam kintu kalke confirm korbo</div>
+    </div>
+
+    <!-- 3. Single-line Text Input -->
+    <div class="field-card">
+      <h3>
+        <span>Single-line Text Input</span>
+        <span class="tag">&lt;input type="text"&gt;</span>
+      </h3>
+      <p class="field-desc">Used for subject lines, search bars, and title fields.</p>
+      <input type="text" id="test-input" placeholder="Type Banglish here..." value="kalke sokale office ashben ki na janaben">
+    </div>
+
+    <footer>
+      BanglaWrite AI &bull; Lightweight, zero-dependency Chrome Extension for macOS
+    </footer>
+  </div>
+
+  <script>
+    let lastFocusedElement = document.getElementById('test-textarea');
+
+    document.querySelectorAll('input, textarea, [contenteditable="true"]').forEach(el => {
+      el.addEventListener('focus', () => {
+        lastFocusedElement = el;
+      });
+    });
+
+    function fillActive(text) {
+      const el = lastFocusedElement || document.getElementById('test-textarea');
+      el.focus();
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.value = text;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      } else if (el.isContentEditable) {
+        el.textContent = text;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }
+  </script>
+</body>
+</html>
