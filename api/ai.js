@@ -130,7 +130,7 @@ export const AIClient = {
   async _callGemini(userPrompt, systemPrompt, apiKey, endpoint, model, signal) {
     const selectedModel = model || 'gemini-1.5-flash';
     const baseUrl = endpoint || 'https://generativelanguage.googleapis.com/v1beta/models';
-    const url = `${baseUrl.replace(/\/$/, '')}/${selectedModel}:generateContent?key=${encodeURIComponent(apiKey)}`;
+    const url = `${baseUrl.replace(/\/$/, '')}/${selectedModel}:generateContent`;
 
     const payload = {
       system_instruction: {
@@ -150,7 +150,10 @@ export const AIClient = {
 
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': apiKey
+      },
       body: JSON.stringify(payload),
       signal
     });

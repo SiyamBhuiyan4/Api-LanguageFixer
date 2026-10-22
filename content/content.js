@@ -257,8 +257,13 @@
     const tagName = el.tagName ? el.tagName.toUpperCase() : '';
 
     // Standard <textarea> or <input>
-    if (tagName === 'TEXTAREA' || (tagName === 'INPUT' && /^(text|search|url|tel|email|password)$/i.test(el.type || 'text'))) {
+    if (tagName === 'TEXTAREA' || (tagName === 'INPUT' && /^(text|search|url|tel|email)$/i.test(el.type || 'text'))) {
       if (el.disabled || el.readOnly) return null;
+
+      // Security guard: Never read passwords or sensitive credentials
+      if (el.type === 'password' || el.type === 'hidden') return null;
+      const autocomplete = (el.getAttribute('autocomplete') || '').toLowerCase();
+      if (/password|cc-|cvv|current-password|new-password|credit-card/i.test(autocomplete)) return null;
 
       const fullText = el.value || '';
       let start = 0;

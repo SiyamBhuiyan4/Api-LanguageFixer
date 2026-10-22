@@ -24,7 +24,12 @@ export const TextUtils = {
     if (tagName === 'TEXTAREA') return !element.disabled && !element.readOnly;
     if (tagName === 'INPUT') {
       const type = (element.getAttribute('type') || 'text').toLowerCase();
-      const validTypes = ['text', 'search', 'url', 'tel', 'email', 'password'];
+      // Never touch password, hidden, or credential inputs
+      if (type === 'password' || type === 'hidden') return false;
+      const autocomplete = (element.getAttribute('autocomplete') || '').toLowerCase();
+      if (/password|cc-|cvv|current-password|new-password|credit-card/i.test(autocomplete)) return false;
+
+      const validTypes = ['text', 'search', 'url', 'tel', 'email'];
       return validTypes.includes(type) && !element.disabled && !element.readOnly;
     }
     return element.isContentEditable || element.getAttribute('contenteditable') === 'true';

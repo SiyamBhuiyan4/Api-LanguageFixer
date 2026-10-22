@@ -42,15 +42,28 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 async function handleMessage(request, sender) {
   switch (request.type) {
     case 'REWRITE_REQUEST': {
+      const text = (request.text || '').trim();
+      if (!text) {
+        throw new Error('কোনো লেখা নেই (Text is empty)');
+      }
+      if (text.length > 5000) {
+        throw new Error('টেক্সটের দৈর্ঘ্য খুব বেশি (সর্বোচ্চ ৫,০০০ অক্ষর অনুমোদিত)');
+      }
+
       const settings = await Storage.getSettings();
       const mode = request.mode || settings.mode || 'natural';
-      const text = request.text;
 
       const result = await AIClient.sendToAI(text, mode, settings);
       return { text: result.text };
     }
 
     case 'GET_SETTINGS': {
+      // Security guard: Only extension internal pages (popup, options) can view full credentials
+      const isInternal = Boolean(sender.url && sender.url.startsWith(chrome.runtime.getURL('')));
+      if (!isInternal) {
+        throw new Error('অননুমোদিত এক্সেস (Unauthorized access to credentials)');
+      }
+
       const settings = await Storage.getSettings();
       const configured = await Storage.isConfigured();
       return { settings, configured };
