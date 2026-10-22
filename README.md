@@ -1,131 +1,294 @@
-# BanglaWrite AI (বাংলা রাইটিং অ্যাসিস্ট্যান্ট)
+# 🇧🇩 BanglaWrite AI — বাংলা রাইটিং অ্যাসিস্ট্যান্ট
 
-> **বাংলিশ ও অপ্রমিত বাংলাকে এক ক্লিকে স্বাভাবিক, সুন্দর ও ব্যাকরণসম্মত প্রমিত বাংলায় রূপান্তর করার জন্য একটি অত্যন্ত হালকা (Ultra-lightweight) Chrome Extension।**
-
-![Version](https://img.shields.io/badge/version-1.0.0-emerald)
-![Manifest](https://img.shields.io/badge/manifest-v3-blue)
-![Dependencies](https://img.shields.io/badge/dependencies-0-success)
-![Hardware](https://img.shields.io/badge/hardware-optimized%20for%20MacBook%20Air-purple)
+> **Instant, Natural, and Context-Aware Bengali Writing Assistant for Chrome**  
+> Convert Banglish and informal Bengali into natural, grammatically correct Bangla in real time across any webpage.
 
 ---
-
-## 🌟 মূল বৈশিষ্ট্যসমূহ (Key Features)
-
-1. **যেকোনো ওয়েবসাইটে কাজ করে**: Facebook, Messenger, Gmail, LinkedIn, Discord Web, YouTube, কিংবা যেকোনো সাধারণ ফর্মের ইনপুট বা `contenteditable` টেক্সটবক্সে কাজ করে।
-2. **কিবোর্ড শর্টকাট**: <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> (Mac) অথবা <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> (Windows/Linux)।
-3. **নির্বাচিত অথবা সম্পূর্ণ লেখা রূপান্তর**:
-   - কোনো অংশ সিলেক্ট করা থাকলে **শুধুমাত্র নির্বাচিত অংশ** রূপান্তর হবে।
-   - কোনো অংশ সিলেক্ট না থাকলে **সম্পূর্ণ টেক্সটবক্সের লেখা** রূপান্তর হবে।
-4. **কোনো স্বয়ংক্রিয় সেন্ড/পোস্ট নেই**: এক্সটেনশন কখনোই স্বয়ংক্রিয়ভাবে ফর্ম সাবমিট বা সেন্ড বাটনে ক্লিক করবে না। আপনি নিজে দেখে সন্তুষ্ট হয়ে ম্যানুয়ালি সেন্ড করবেন।
-5. **৭টি ভিন্ন টোন মোড (Tone Modes)**:
-   - **Natural Bangla**: স্বাভাবিক, স্বতঃস্ফূর্ত ও সাবলীল প্রমিত বাংলা।
-   - **Polite**: বিনম্র, মার্জিত ও শ্রদ্ধাশীল ভাষা।
-   - **Casual**: বন্ধুমহলের আড্ডা ও হালকা কথ্য রূপ।
-   - **Professional**: অফিস, ক্লায়েন্ট ও কর্মক্ষেত্রোপযোগী পরিশীলিত ভাষা।
-   - **Formal**: প্রাতিষ্ঠানিক, দাপ্তরিক ও প্রমিত রূপ।
-   - **Short**: মূল ভাব ঠিক রেখে সরাসরি ও সংক্ষিপ্ত রূপ।
-   - **Fix Grammar**: শব্দ ও ভাব অপরিবর্তিত রেখে কেবল বানান, যতিচিহ্ন ও ব্যাকরণ সংশোধন।
-6. **মাল্টি-প্রভাইডার সুবিধা**:
-   - Google Gemini (বিনামূল্যে ব্যবহারের সুযোগ ও অত্যন্ত সমৃদ্ধ বাংলা সাপোর্ট)
-   - Groq (সুপার-ফাস্ট LPU ইনফারেন্স)
-   - OpenAI (GPT-4o Mini / GPT-4o)
-   - Anthropic Claude (Claude 3.5 Haiku)
-   - Ollama (আপনার কম্পিউটারে সম্পূর্ণ লোকাল ও অফলাইন)
-7. **ম্যাকবুক এয়ার ২০১৭ (Intel) অপ্টিমাইজড**: শূন্য ডিপেন্ডেন্সি, কোনো ফ্রেমওয়ার্ক নেই, কোনো মেমরি লিক নেই।
-
----
-
-## 🚀 কীভাবে Chrome-এ ইনস্টল করবেন (Load Unpacked)
-
-১. গুগল ক্রোম (Google Chrome) ব্রাউজার খুলুন।  
-২. এড্রেস বারে যান: `chrome://extensions/`  
-৩. ওপরের ডান কোণায় থাকা **Developer mode** টগলটি চালু (ON) করুন।  
-৪. ওপরের বাঁ দিকে থাকা **Load unpacked** বাটনে ক্লিক করুন।  
-৫. ফাইল সিলেক্টর থেকে এই ডিরেক্টরিটি নির্বাচন করুন:  
-   `/Users/mdyeakubsarker/Documents/Agent-bangla`  
-৬. ব্যস! আপনার এক্সটেনশন তালিকায় **BanglaWrite AI** যুক্ত হয়ে যাবে।
-
----
-
-## ⚙️ কীভাবে API কনফিগার করবেন (API Settings)
-
-১. ক্রোমের এক্সটেনশন আইকন থেকে **BanglaWrite AI**-এর ওপর ক্লিক করুন অথবা এক্সটেনশন সেটিংসে যান।  
-২. **API Provider** হিসেবে আপনার পছন্দ নির্বাচন করুন (যেমন: **Google Gemini**)।  
-৩. আপনার API কী (API Key) প্রবেশ করান:
-   - **Google Gemini**: [Google AI Studio](https://aistudio.google.com/app/apikey) থেকে সম্পূর্ণ বিনামূল্যে আপনার API Key সংগ্রহ করুন।
-   - **Groq**: [Groq Console](https://console.groq.com/keys) থেকে ফ্রি ও দ্রুততম API Key সংগ্রহ করতে পারেন।
-   - **Ollama**: লোকাল ব্যবহারের জন্য কোনো কী-এর প্রয়োজন নেই (ডিফল্ট: `http://localhost:11434/v1/chat/completions`)।
-৪. **Test Connection** বাটনে ক্লিক করে সংযোগ নিশ্চিত করুন।  
-৫. **Save Settings** বাটনে ক্লিক করে সেটিংস সেভ করুন।
-
----
-
-## ⌨️ কীভাবে ব্যবহার করবেন (Usage Guide)
-
-1. যেকোনো ওয়েবসাইট (যেমন: Facebook, Gmail, Messenger) খুলুন।
-2. যেকোনো টেক্সটবক্সে ক্লিক করে বাংলিশ বা খসড়া বাংলায় লিখুন:
-   ```text
-   ami ajke jete parbo na kalke gele ki hobe
-   ```
-3. কিবোর্ডে চাপুন:
-   - **Mac**: <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
-   - **Windows / Linux**: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
-4. স্ক্রিনের নিচে সুন্দর নোটিফিকেশন আসবে এবং মুহূর্তের মধ্যে লেখাটি প্রতিস্থাপিত হয়ে যাবে:
-   ```text
-   আমি আজকে যেতে পারব না। কালকে গেলে কি হবে?
-   ```
-5. পছন্দ না হলে তাৎক্ষণিক <kbd>Cmd</kbd> + <kbd>Z</kbd> বা <kbd>Ctrl</kbd> + <kbd>Z</kbd> চেপে পূর্বাবস্থায় ফিরে যেতে পারবেন।
-
----
-
-## 📂 প্রোজেক্ট আর্কিটেকচার (Project Architecture)
 
 ```
+  ____                    _         __        __ _ _            _     ___ 
+ | __ )  __ _ _ __   __ _| | __ _   \ \      / / __(_) |_ ___   / \   |_ _|
+ |  _ \ / _` | '_ \ / _` | |/ _` |   \ \ /\ / / '__| | __/ _ \ / _ \   | | 
+ | |_) | (_| | | | | (_| | | (_| |    \ V  V /| |  | | ||  __// ___ \  | | 
+ |____/ \__,_|_| |_|\__, |_|\__,_|     \_/\_/ |_|  |_|\__\___/_/   \_\_|___|
+                    |___/                                                  
+                ✨ বাংলা ও বাংলিশ লেখার নির্ভরযোগ্য এআই সহকারী ✨
+```
+
+---
+
+## 📑 Table of Contents
+1. [Overview & Architecture](#-overview--architecture)
+2. [Feature Highlights & Tone Modes](#-feature-highlights--tone-modes)
+3. [Installation Guide (Chrome Load Unpacked)](#-installation-guide-chrome-load-unpacked)
+4. [How to Obtain API Keys](#-how-to-obtain-api-keys)
+   - [Google Gemini API (Free Tier Recommended)](#1-google-gemini-api-free-tier-recommended)
+   - [Groq API (Ultra-Fast & Free Tier)](#2-groq-api-ultra-fast--free-tier)
+   - [OpenAI API](#3-openai-api)
+   - [Ollama (100% Free, Offline & Private)](#4-ollama-100-free-offline--private)
+5. [Configuring API Settings](#-configuring-api-settings)
+6. [Keyboard Shortcut Usage (Command/Ctrl + Shift + B)](#-keyboard-shortcut-usage-commandctrl--shift--b)
+7. [Privacy & Security Commitment](#-privacy--security-commitment)
+8. [Comprehensive Troubleshooting Guide](#-comprehensive-troubleshooting-guide)
+9. [Project Structure & File Map](#-project-structure--file-map)
+
+---
+
+## 🌟 Overview & Architecture
+
+**BanglaWrite AI** is a privacy-first, ultra-lightweight Chrome Extension (Manifest V3) designed for millions of Bengali speakers worldwide. Whether you are typing phonetic Banglish (*e.g., "ami ajke office jabo na"*) or writing informal Bengali that needs grammatical refinement, BanglaWrite AI intelligently rewrites your text into authentic, fluent Bengali script (*"আমি আজকে অফিসে যাব না।"*) directly inside your browser input fields.
+
+### 📐 System Architecture Diagram
+
+```
++-----------------------------------------------------------------------------------+
+|                                  USER BROWSER                                     |
+|                                                                                   |
+|  +--------------------+         Keyboard Shortcut        +---------------------+  |
+|  |   Active Webpage   |  ─── [Cmd/Ctrl + Shift + B] ───> |  Content Script     |  |
+|  |  (Gmail, Docs,     |                                  |  (content.js)       |  |
+|  |   Facebook, etc.)  |  <── Replaces Text in DOM ────── |  - DOM Extraction   |  |
+|  +--------------------+                                  |  - Shadow DOM HUD   |  |
+|                                                                     │             |
+|                                                     chrome.runtime  │ IPC         |
+|                                                     .sendMessage()  ▼             |
+|  +--------------------+                                  +---------------------+  |
+|  |  Extension Popup   | ─── Selects Tone Mode ─────────> |  Service Worker     |  |
+|  |  & Options Page    | <── Status & Settings Sync ───── |  (service-worker.js)|  |
+|  +--------------------+                                  |  - State Manager    |  |
+|            │                                             |  - Prompt Builder   |  |
+|            │ Saves Configuration                         |  - Error Handler    |  |
+|            ▼                                             +---------------------+  |
+|  +--------------------+                                             │             |
+|  | chrome.storage.    | <── Reads API Keys & Presets ───────────────┤             |
+|  | local (Sandboxed)  |                                             │ Direct HTTPS|
++---------------------------------------------------------------------┼-------------+
+                                                                      │ (No Proxy)
+                                                                      ▼
+                     +─────────────────────────────────────────────────────────────+
+                     |                     AI LLM ENGINES                          |
+                     |  - Google Gemini (gemini-1.5-flash / gemini-2.0-flash)      |
+                     |  - Groq Cloud (llama-3.3-70b-versatile, 300+ tok/s)         |
+                     |  - OpenAI (gpt-4o-mini / gpt-4o)                            |
+                     |  - Anthropic (claude-3-5-haiku / sonnet)                    |
+                     |  - Ollama (Localhost:11434 - 100% Offline & Private)        |
+                     +─────────────────────────────────────────────────────────────+
+```
+
+---
+
+## 🎯 Feature Highlights & Tone Modes
+
+### Key Features
+* 🔤 **Banglish to Bengali Script Conversion**: Seamlessly converts phonetic Latin-script typing into flawless Bengali Unicode characters without requiring complex phonetic layout switchers.
+* 🧠 **Zero Hallucination & Meaning Preservation**: Strictly retains the author's original intent, emotional tone, and factual statements. No added claims, no assumptions.
+* 🛡️ **Entity & Code Integrity**: Automatically preserves proper names, numbers/dates, URLs (`https://...`), email addresses, currency amounts, coupon codes, and programming syntax.
+* ✍️ **Bengali Punctuation Rules**: Correctly employs the Bengali Dari (`।` - U+0964) instead of English periods (`.`) for declarative statements, with standard spacing for commas, colons, and question marks.
+* 🌐 **Universal DOM Compatibility**: Works on standard HTML `<input type="text">`, `<textarea>`, as well as rich `contenteditable` wrappers (Gmail, Slack, WhatsApp Web, Twitter/X, LinkedIn, Notion, and Google Docs).
+* ⚡ **Instant In-Place Replacement**: Replaces highlighted text or whole fields directly without opening external tabs or copy-pasting.
+* ↩️ **Full Undo Support**: Press standard `Cmd + Z` / `Ctrl + Z` or click "Undo" on the HUD notification to restore your original draft instantly.
+* 🔒 **Zero Telemetry**: No tracking, no user logs, zero analytics scripts, and no middleman servers.
+
+---
+
+### The 7 Tone Modes
+
+BanglaWrite AI features **7 specialized tone modes** engineered to handle any personal, casual, or professional writing scenario:
+
+```
++───────────────────────────────────────────────────────────────────────────────────+
+|                           BANGLAWRITE AI TONE SPECTRUM                            |
+|                                                                                   |
+|  [Casual] ◄─── [Natural] ───► [Polite] ───► [Professional] ───► [Formal]         |
+|  (Friends)     (Everyday)     (Gentle)      (Workplace)         (Institutional)   |
+|                                                                                   |
+|  Specialized Modes:                                                               |
+|  - [Short]: Maximum brevity & zero fluff.                                         |
+|  - [Fix Grammar]: Strict error correction with zero alteration to personal voice. |
++───────────────────────────────────────────────────────────────────────────────────+
+```
+
+| # | Tone Mode | বাংলা নাম | Purpose & Stylistic Behavior | Example Input ➔ Output |
+|---|---|---|---|---|
+| **1** | **Natural Bangla** *(Default)* | স্বাভাবিক ও প্রমিত চলিত বাংলা | Idiomatic, fluent modern colloquial Bengali (প্রমিত চলিত ভাষা). Ideal for daily conversations, comments, and posts. | `ami ajke office ashte parbo na matha betha korche`<br>➔ **আমি আজকে অফিসে আসতে পারব না, কারণ মাথা ব্যথা করছে।** |
+| **2** | **Polite** | নম্র ও বিনয়ী বাংলা | Infuses gentle warmth, courtesy, and respectful honorifics (`আপনি`/`আপনার`, `দয়া করে`, `একটু দেখবেন কি`). De-escalates blunt or impatient messages. | `ei file ta pathao taratari amar lagbe`<br>➔ **অনুগ্রহ করে ফাইলটি একটু দ্রুত পাঠালে খুব উপকৃত হতাম।** |
+| **3** | **Casual** | অনানুষ্ঠানিক ও বন্ধুত্বপূর্ণ | Easygoing, relaxed conversational tone for close friends and peers. Uses friendly pronouns (`তুমি`/`তুই`) and colloquial markers (`রে`, `তো`, `চলো`). | `ami ajke rate ashte parbo na onno kono din dekha kori`<br>➔ **আজ রাতে আসতে পারছি না রে, চলো অন্য কোনো দিন দেখা করি।** |
+| **4** | **Professional** | পেশাদার ও কর্মক্ষেত্রোপযোগী | Polished, structured, and constructive tone for business emails, client communications, and team updates. Uses clean business vocabulary. | `sir client meeting er time change korse kal 3 tay boshbo`<br>➔ **ক্লায়েন্ট মিটিংয়ের সময়সূচি পরিবর্তনের অনুরোধ করেছেন। আমরা কি আগামীকাল দুপুর ৩টায় বসতে পারি?** |
+| **5** | **Formal** | দাপ্তরিক ও প্রাতিষ্ঠানিক বাংলা | Dignified, high-register Bengali for official applications, corporate notices, contracts, and administrative correspondence (`মহোদয়`, `সদয় অবগতির জন্য`). | `amar chuti lagbe 2 din er jonno application disi`<br>➔ **আমার জরুরি ব্যক্তিগত প্রয়োজনে আগামী দুই দিনের ছুটির জন্য বিনীত আবেদন পেশ করছি।** |
+| **6** | **Short** | সংক্ষিপ্ত ও স্পষ্ট বাংলা | Condenses statements down to their bare essential action, time, and fact while maintaining grammatical integrity. Zero conversational padding. | `ami ekhon ektu busy achi tai apnar sathe ekhon kotha bolte parbo na pore phone dicchi`<br>➔ **এখন ব্যস্ত আছি, একটু পর ফোন করছি।** |
+| **7** | **Fix Grammar** | ব্যাকরণ ও বানান সংশোধন | **Strict Minimal Intervention**: Corrects spelling (বানান), conjuncts (যুক্তাক্ষর), punctuation, and Banglish transliteration **without** changing wording, style, or pronoun register. | `tara kaj ta sesh korsile kintu taka pai ni.`<br>➔ **তারা কাজটা শেষ করেছিল কিন্তু টাকা পায়নি।** |
+
+---
+
+## 🚀 Installation Guide (Chrome Load Unpacked)
+
+Install BanglaWrite AI into Google Chrome or any Chromium-based browser (Brave, Microsoft Edge, Opera, Vivaldi, Arc) in less than 60 seconds:
+
+```
+[ Download / Clone ] ──> [ chrome://extensions ] ──> [ Enable Developer Mode ] ──> [ Load Unpacked ] ──> ✨ Ready!
+```
+
+### Step-by-Step Instructions:
+
+1. **Open the Extensions Page**:
+   In your Chrome address bar, type the following and press `Enter`:
+   ```text
+   chrome://extensions
+   ```
+
+2. **Enable Developer Mode**:
+   Locate the **"Developer mode"** toggle switch in the top-right corner of the Extensions page and turn it **ON**.
+
+3. **Click "Load Unpacked"**:
+   Click the **"Load unpacked"** button located on the top-left toolbar.
+
+4. **Select the Extension Folder**:
+   In the file picker dialog, navigate to and select:
+   ```text
+   /Users/mdyeakubsarker/Documents/Agent-bangla
+   ```
+
+5. **Verify & Pin the Extension**:
+   * The **BanglaWrite AI** extension card will appear with its emerald **"ব"** icon and version `1.0.0`.
+   * Click the **Extensions puzzle icon** (🧩) on your browser toolbar and click the **Pin icon** (📌) next to BanglaWrite AI.
+
+---
+
+## 🔑 How to Obtain API Keys
+
+BanglaWrite AI communicates directly with your preferred LLM provider. Follow the step-by-step guides below to obtain your key:
+
+### 1. Google Gemini API (Free Tier Recommended)
+*Recommended for most users — completely free tier with high speed and natural Bengali understanding.*
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Sign in with your standard Google account.
+3. Click the blue **"Create API key"** button.
+4. Choose **"Create API key in new project"** (or link an existing Google Cloud project).
+5. Copy the generated key string (starts with `AIzaSy...`).
+6. *Cost*: **Free** under Google's generous rate limits (15 requests/minute, 1,500 requests/day).
+
+---
+
+### 2. Groq API (Ultra-Fast & Free Tier)
+*Incredible speed (300+ tokens/second) powered by LPU inference with `llama-3.3-70b-versatile`.*
+
+1. Go to the [Groq Console](https://console.groq.com/).
+2. Sign up or log in with GitHub or Google.
+3. In the left navigation menu, click **"API Keys"**.
+4. Click **"Create API Key"**, enter a name (e.g. `BanglaWrite`), and click **Submit**.
+5. Copy your key immediately (starts with `gsk_...`).
+6. *Cost*: **Free tier** with fast response times.
+
+---
+
+### 3. OpenAI API
+*Standard enterprise reliability with `gpt-4o-mini` or `gpt-4o`.*
+
+1. Navigate to the [OpenAI Platform](https://platform.openai.com/).
+2. Log in and access the [API Keys Dashboard](https://platform.openai.com/api-keys).
+3. Click **"Create new secret key"**.
+4. Label the key `BanglaWrite-AI` and click **Create secret key**.
+5. Copy the key string (starts with `sk-proj-...`).
+
+---
+
+### 4. Ollama (100% Free, Offline & Private)
+*Run completely locally on your machine without an internet connection or external API key.*
+
+1. Download and install Ollama from [ollama.com/download](https://ollama.com/download).
+2. Open your terminal and pull a model:
+   ```bash
+   ollama run llama3.2
+   ```
+3. **Configure CORS for Chrome Extensions**:
+   * **macOS / Linux**:
+     ```bash
+     OLLAMA_ORIGINS="*" ollama serve
+     ```
+   * **Windows**:
+     ```cmd
+     set OLLAMA_ORIGINS=*
+     ollama serve
+     ```
+4. In BanglaWrite AI Settings, select **Ollama (Local)**.
+   * Endpoint: `http://localhost:11434/v1/chat/completions`
+   * Model: `llama3.2`
+
+---
+
+## ⚙️ Configuring API Settings
+
+1. Click the BanglaWrite AI toolbar icon and click **"⚙️ API Settings"**.
+2. Select your AI Provider (Google Gemini, Groq, OpenAI, Anthropic, or Ollama).
+3. Paste your API key into the API Key input box.
+4. Select your preferred default writing tone.
+5. Click **"Test Connection"** (`সংযোগ পরীক্ষা`) to verify the key.
+6. Click **"Save Settings"** (`সেটিংস সংরক্ষণ করুন`).
+
+---
+
+## ⌨️ Keyboard Shortcut Usage (`Command/Ctrl + Shift + B`)
+
+```
+       macOS:   [ ⌘ Command ]  +  [ ⇧ Shift ]  +  [ B ]
+Windows/Linux:   [ Ctrl      ]  +  [ ⇧ Shift ]  +  [ B ]
+```
+
+1. **Selected Text Replacement (Precision Mode)**:
+   Highlight a specific word or sentence, then press <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. Only the selected portion will be rewritten.
+2. **Entire Field Replacement (Zero-Selection Mode)**:
+   Keep your caret anywhere inside an input field or textarea and press <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>. The entire field will be rewritten.
+3. **No Auto-Submit**: The extension will never automatically send, post, or submit the form.
+4. **Undo Support**: Press <kbd>Cmd</kbd> + <kbd>Z</kbd> (or <kbd>Ctrl</kbd> + <kbd>Z</kbd>) to revert anytime.
+
+---
+
+## 🔒 Privacy & Security Commitment
+
+- **Password Protection**: Password fields (`type="password"`) and credential autocomplete fields are strictly ignored.
+- **Credential Isolation**: API keys remain strictly within `chrome.storage` and background service workers; web pages cannot access raw keys.
+- **Zero Telemetry**: No analytics, tracking pixels, or external dependencies.
+- **Direct Communication**: All requests go directly to your configured provider or localhost (Ollama).
+
+---
+
+## 📂 Project Structure & File Map
+
+```text
 Agent-bangla/
-├── manifest.json              # Chrome Manifest V3 কনফিগারেশন
-├── icons/                     # ক্রোম এক্সটেনশন আইকনসমূহ (16, 32, 48, 128)
+├── manifest.json              # Chrome Manifest V3 specification
+├── icons/                     # Icons (16, 32, 48, 128) + icon.svg
 │   ├── icon16.png
 │   ├── icon32.png
 │   ├── icon48.png
-│   ├── icon128.png
-│   └── icon.svg
-├── popup/                     # এক্সটেনশন পপআপ ইন্টারফেস
+│   └── icon128.png
+├── popup/                     # Extension popup interface
 │   ├── popup.html
 │   ├── popup.css
 │   └── popup.js
-├── options/                   # সেটিংস ও API কনফিগারেশন পেজ
+├── options/                   # Settings & API configuration page
 │   ├── options.html
 │   ├── options.css
 │   └── options.js
-├── content/                   # ওয়েবপেজে ইনজেক্ট হওয়া স্ক্রিপ্ট ও Shadow DOM HUD
+├── content/                   # In-page script & Shadow DOM HUD
 │   ├── content.js
 │   └── content.css
-├── background/                # ব্যাকগ্রাউন্ড সার্ভিস ওয়ার্কার (MV3)
+├── background/                # Background service worker (MV3)
 │   └── service-worker.js
-├── api/                       # মাল্টি-প্রভাইডার AI মডিউল
+├── api/                       # Multi-provider client (Gemini, Groq, OpenAI, Ollama, Anthropic)
 │   └── ai.js
-├── utils/                     # টেক্সট, DOM ও স্টোরেজ হেল্পার
+├── utils/                     # Safe text replacement & storage sync
 │   ├── text.js
 │   └── storage.js
-├── test/                      # টেস্ট ও ভেরিফিকেশন স্যুট
+├── test/                      # Verification suite (77 automated tests)
 │   └── verify.js
 └── README.md
 ```
 
 ---
 
-## 🔒 নিরাপত্তা ও গোপনীয়তা (Security & Privacy)
+## 📄 License
 
-- **কোনো ব্রাউজিং হিস্ট্রি ট্র্যাক করা হয় না**: ব্যবহারকারীর কোনো ব্রাউজিং ডেটা সংগ্রহ করা হয় না।
-- **API কী সুরক্ষিত**: আপনার API কী শুধুমাত্র আপনার ব্রাউজারের `chrome.storage`-এ এনক্রিপ্টেড/লোকালি সংরক্ষিত থাকে। এটি কোনো তৃতীয় পক্ষের সার্ভারে পাঠানো হয় না।
-- **শুধুমাত্র ব্যবহারকারীর ইচ্ছায় ডেটা সেন্ড**: ব্যবহারকারী নিজে শর্টকাট চাপলে কেবল সেই নির্দিষ্ট টেক্সটটি নির্বাচিত AI প্রভাইডারে পাঠানো হয়।
-- **ন্যূনতম পারমিশন**: অপ্রয়োজনীয় কোনো পারমিশন চাওয়া হয়নি (`storage`, `activeTab`)।
-
----
-
-## 🧪 টেস্ট চালানো (Run Verification)
-
-প্রোজেক্টের সমস্ত ভ্যালিডেশন টেস্ট চালাতে রান করুন:
-```bash
-node test/verify.js
-```
+* **Author**: Md Yeakub Sarker
+* **License**: MIT Open-Source License
